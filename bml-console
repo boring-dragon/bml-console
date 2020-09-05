@@ -1,0 +1,14 @@
+#! /usr/bin/env php
+
+<?php
+
+use Symfony\Component\Console\Application;
+use Jinas\BMLConsole\Helpers\BML;
+
+require 'vendor/autoload.php';
+
+$app = new Application('Bml Console', '0.1');
+
+$app->add(new Jinas\BMLConsole\InitCommand(new BML));
+
+$app->run();

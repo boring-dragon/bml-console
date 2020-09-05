@@ -1,0 +1,21 @@
+{
+    "name": "jinas/bml-console",
+    "description": "BML for nerds.",
+    "license": "MIT",
+    "authors": [{
+        "name": "Mohamed Jinas",
+        "email": "j@live.mv"
+    }],
+    "require": {
+        "symfony/console": "^5.1",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/var-dumper": "^5.1",
+        "nesbot/carbon": "^2.39"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Jinas\\BMLConsole\\": "src/"
+        }
+    }
+}
