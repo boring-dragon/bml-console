@@ -11,7 +11,7 @@ class Total
     {
         $output->writeln([
             "<info>",
-            "Account Total: " . $bml->balance . "MVR",
+            "Account Total: " . $bml->availableBalance . "MVR",
             "</info>"
         ]);
     }
