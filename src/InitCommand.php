@@ -23,7 +23,7 @@ class InitCommand extends Command
         "/todays-transactions" => \Jinas\BMLConsole\Commands\TodaysTransactions::class,
         "/pending-transactions" => \Jinas\BMLConsole\Commands\PendingTransactions::class,
         "/transactions-between" => \Jinas\BMLConsole\Commands\TransactionsBetween::class,
-        "/activities" => \Jinas\BMLConsole\Commands\Activities::class,
+        "/activities" => \Jinas\BMLConsole\Commands\Activities::class
     ];
 
     public function __construct(Bml $bml)
@@ -44,7 +44,7 @@ class InitCommand extends Command
         $this->LoadColors($output);
         $this->authenticate($input, $output);
         $this->bml->GetDashboardInfo()
-                   ->GetUserInfo();
+            ->GetUserInfo();
 
         $output->writeln($this->GetAsciiLogo());
         $output->writeln($this->meta()["description"]);
@@ -56,13 +56,14 @@ class InitCommand extends Command
 
         while ($this->exit = true) {
             $action = $helper->ask($input, $output, (new Question("<question>Select Your Action: </question> \n"))
-                ->setAutocompleterValues(array_keys($this->commands)));
-
+                ->setAutocompleterValues(
+                    array_merge(array_keys($this->commands), ["/exist"])
+                ));
 
             if (array_key_exists($action, $this->commands)) {
-                $class = $this->commands[$action];
-
-                (new $class)->handle($this->bml, $output, $input);
+                (new $this->commands[$action])->handle($this->bml, $output, $input);
+            } elseif ($action == "/exist") {
+                exit(0);
             } else {
                 $output->writeln("<fire>Invalid Choice.</fire>");
             }
