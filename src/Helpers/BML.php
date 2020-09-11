@@ -4,8 +4,10 @@ namespace Jinas\BMLConsole\Helpers;
 
 use Jinas\BMLConsole\Http\Client;
 
-class BML extends Client
+class BML
 {
+    protected $client;
+
     public $customerNumber;
     public $gender;
     public $email;
@@ -24,15 +26,20 @@ class BML extends Client
     public $clearedBalance;
     public $branch;
 
+    public function __construct()
+    {
+        $this->client = new Client;
+    }
+
 
     public function login(string $username, string $password): array
     {
-        return $this->PostRequest(['j_username' => $username, 'j_password' => $password], "m/login");
+        return $this->client->post(['j_username' => $username, 'j_password' => $password], "m/login");
     }
 
     public function GetDashboardInfo()
     {
-        $dashboard = $this->GetRequest("dashboard")["dashboard"][0];
+        $dashboard = $this->client->get("dashboard")["dashboard"][0];
 
         $this->guid = $dashboard["id"];
         $this->product = $dashboard["product"];
@@ -48,7 +55,7 @@ class BML extends Client
 
     public function GetUserInfo()
     {
-        $userinfo = $this->GetRequest("userinfo")["user"];
+        $userinfo = $this->client->get("userinfo")["user"];
 
         $this->customerNumber =  $userinfo["customer_number"];
         $this->gender =  $userinfo["gender"];
@@ -59,21 +66,33 @@ class BML extends Client
         $this->birthdate =  $userinfo["birthdate"];
         $this->fullName =  $userinfo["fullname"];
 
+        return $this;
+
     }
 
-    public function GetContacts()
+    public function GetContacts() : array
     {
-        return $this->GetRequest("contacts");
+        return $this->client->get("contacts");
+    }
+
+    public function AddContact(string $accountno, string $alias, string $type = "IAT") : array
+    {
+        $response = $this->client->post([
+            'contact_type' => $type,
+            'account' => $accountno,
+            'alias' => $alias
+        ], "contacts/");
+        return $response;
     }
 
     public function GetTodayTransactions(): array
     {
-        return $this->GetRequest("account/$this->guid/history/today")["history"];
+        return $this->client->get("account/$this->guid/history/today")["history"];
     }
 
     public function GetPendingTransactions() : array
     {
-        return $this->GetRequest("history/pending/$this->guid");
+        return $this->client->get("history/pending/$this->guid");
     }
 
     public function GetTransactionsBetween(string $from, string $to, string $page = '1'): array
@@ -81,7 +100,7 @@ class BML extends Client
         $from = date('Ymd', strtotime($from));
         $to = date('Ymd', strtotime($to));
 
-        return $this->GetRequest("account/$this->guid/history/$from/$to/$page")["history"];
+        return $this->client->get("account/$this->guid/history/$from/$to/$page")["history"];
     }
 
 }

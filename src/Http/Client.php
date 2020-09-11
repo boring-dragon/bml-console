@@ -5,18 +5,19 @@ namespace Jinas\BMLConsole\Http;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Cookie\SessionCookieJar;
 
-class Client extends GuzzleClient
+class Client
 {
+    protected $client;
     protected $BML_API = "https://www.bankofmaldives.com.mv/internetbanking/api/";
 
     public function __construct()
     {
         $jar = new SessionCookieJar('PHPSESSID', true);
-        parent::__construct(['cookies' => $jar]);
+        $this->client = new GuzzleClient(['cookies' => $jar]);
     }
 
     /**
-     * PostRequest
+     * post
      *
      *  Send Post to BML API with array of form params
      *
@@ -27,10 +28,10 @@ class Client extends GuzzleClient
      *
      * @return array
      */
-    public function PostRequest(array $params, string $route): array
+    public function post(array $params, string $route): array
     {
         try {
-            $response = $this->request('POST', $this->BML_API . $route, [
+            $response = $this->client->request('POST', $this->BML_API . $route, [
                 'form_params' => $params
             ]);
 
@@ -41,7 +42,7 @@ class Client extends GuzzleClient
     }
 
     /**
-     * getRequest
+     * get
      *
      *  Send Get request to BML API
      *
@@ -49,9 +50,9 @@ class Client extends GuzzleClient
      *
      * @return array
      */
-    public function GetRequest(string $route): array
+    public function get(string $route): array
     {
-        $response = $this->request('GET', $this->BML_API . $route);
+        $response = $this->client->request('GET', $this->BML_API . $route);
         $rawresponse = json_decode($response->getBody(), true);
         return $rawresponse["payload"];
     }
