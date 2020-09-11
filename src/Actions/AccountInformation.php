@@ -16,7 +16,6 @@ class AccountInformation
             "Gender: \t $bml->gender",
             "Phone: \t \t $bml->mobileNumber",
             "Birthdate \t $bml->birthdate",
-
             "Account Name:  \t  $bml->alias",
             "Account Number: $bml->account",
             "Product: \t $bml->product",
