@@ -26,13 +26,13 @@ Make sure to place Composer's system-wide vendor bin directory in your $PATH so 
 
 All available commands will have autocompletion.
 
-/total : Get Total available account balance.
-/contacts : Get a table of contacts added to the bml account.
-/todays-transactions : Get a table of transactions made today.
-/pending-transactions : Get the pending transactions.
-/transactions-between : Get the transactions between the dates.
-/activities : Get a table of recent activities occured in the account.
-/exist: Exist the app
+- /total : Get Total available account balance.
+- /contacts : Get a table of contacts added to the bml account.
+- /todays-transactions : Get a table of transactions made today.
+- /pending-transactions : Get the pending transactions.
+- /transactions-between : Get the transactions between the dates.
+- /activities : Get a table of recent activities occured in the account.
+- /exist: Exist the app
 
 
 ## Todo
