@@ -32,7 +32,7 @@ All available commands will have autocompletion.
 - /pending-transactions : Get the pending transactions.
 - /transactions-between : Get the transactions between the dates.
 - /activities : Get a table of recent activities occured in the account.
-- /exist: Exist the app
+- /exit: Exit the app
 
 
 ## Todo
