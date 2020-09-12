@@ -2,13 +2,15 @@
 
 <?php
 
-use Symfony\Component\Console\Application;
-use Jinas\BMLConsole\Helpers\BML;
+if (file_exists(__DIR__.'/../../autoload.php')) {
+    require __DIR__.'/../../autoload.php';
+} else {
+    require __DIR__.'/vendor/autoload.php';
+}
 
-require 'vendor/autoload.php';
 
-$command = new Jinas\BMLConsole\InitCommand(new BML);
-$app = new Application('Bml Console', '0.1');
+$command = new Jinas\BMLConsole\InitCommand(new \Jinas\BMLConsole\Helpers\BML);
+$app = new Symfony\Component\Console\Application('Bml Console', '0.1');
 $app->add($command);
 $app->setDefaultCommand($command->getName());
 $app->run();
