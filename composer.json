@@ -8,7 +8,7 @@
     }],
     "require": {
         "symfony/console": "^5.1",
-        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/guzzle": "^6.5",
         "nesbot/carbon": "^2.39"
     },
 
