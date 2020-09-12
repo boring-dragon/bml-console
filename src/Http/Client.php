@@ -36,7 +36,7 @@ class Client
             ]);
 
             return json_decode($response->getBody(), true);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception('Error communicating with API');
         }
     }
