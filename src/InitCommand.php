@@ -15,7 +15,7 @@ class InitCommand extends Command
     use Styles;
 
     protected $bml;
-    protected $exist = false;
+    protected $exit = false;
 
     protected $commands = [
         "/total" => \Jinas\BMLConsole\Commands\Total::class,
@@ -57,7 +57,7 @@ class InitCommand extends Command
         while ($this->exit = true) {
             $action = $helper->ask($input, $output, (new Question("<question>Select Your Action: </question> \n"))
                 ->setAutocompleterValues(
-                    array_merge(array_keys($this->commands), ["/exist"])
+                    array_merge(array_keys($this->commands), ["/exit"])
                 ));
 
             if (array_key_exists($action, $this->commands)) {
