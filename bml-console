@@ -9,7 +9,7 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
 
 
 $command = new Jinas\BMLConsole\InitCommand(new \Jinas\BMLConsole\Helpers\BML);
-$app = new Symfony\Component\Console\Application('Bml Console', '0.1');
+$app = new Symfony\Component\Console\Application('Bml Console', '0.2');
 $app->add($command);
 $app->setDefaultCommand($command->getName());
 $app->run();
