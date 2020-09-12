@@ -16,5 +16,8 @@
         "psr-4": {
             "Jinas\\BMLConsole\\": "src/"
         }
-    }
+    },
+    "bin": [
+        "bml-console"
+    ]
 }
