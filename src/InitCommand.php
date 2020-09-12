@@ -62,7 +62,7 @@ class InitCommand extends Command
 
             if (array_key_exists($action, $this->commands)) {
                 (new $this->commands[$action])->handle($this->bml, $output, $input);
-            } elseif ($action == "/exist") {
+            } elseif ($action == "/exit") {
                 exit(0);
             } else {
                 $output->writeln("<fire>Invalid Choice.</fire>");
