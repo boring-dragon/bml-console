@@ -103,4 +103,9 @@ class BML
         return $this->client->get("account/$this->guid/history/$from/$to/$page")["history"];
     }
 
+    public function GetActivities() : array
+    {
+        return $this->client->get("activities")["content"]["data"];
+    }
+
 }
