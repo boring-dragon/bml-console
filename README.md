@@ -17,9 +17,9 @@ After installing the application globally using composer. You can run `bml-conso
 
 Make sure to place Composer's system-wide vendor bin directory in your $PATH so the bml-console executable can be located by your system. 
 
-- macOS: $HOME/.composer/vendor/bin
-- Windows: %USERPROFILE%\AppData\Roaming\Composer\vendor\bin
-- GNU / Linux Distributions: $HOME/.config/composer/vendor/bin or $HOME/.composer/vendor/bin
+- macOS: `$HOME/.composer/vendor/bin`
+- Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
+- GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin or $HOME/.composer/vendor/bin`
 
 
 ## Commands
