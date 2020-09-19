@@ -28,6 +28,8 @@ All available commands will have autocompletion.
 
 - /total : Get Total available account balance.
 - /contacts : Get a table of contacts added to the bml account.
+- /add-contact : Create a Contact.
+- /delete-contact : Delete a Contact.
 - /todays-transactions : Get a table of transactions made today.
 - /pending-transactions : Get the pending transactions.
 - /transactions-between : Get the transactions between the dates.
@@ -37,8 +39,8 @@ All available commands will have autocompletion.
 
 ## Todo
 
-- [ ] Ability to add contacts
-- [ ] Ability to delete contacts
+- [x] Ability to add contacts
+- [x] Ability to delete contacts
 
 - [ ] Ability to make transfers to account saved in contacts.
 
