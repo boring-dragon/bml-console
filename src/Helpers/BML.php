@@ -85,6 +85,12 @@ class BML
         return $response;
     }
 
+    public function DeleteContact($contact_id) : array
+    {
+        $response = $this->client->post(['_method' => "delete"], "contacts/".$contact_id);
+        return $response;
+    }
+
     public function GetTodayTransactions(): array
     {
         return $this->client->get("account/$this->guid/history/today")["history"];

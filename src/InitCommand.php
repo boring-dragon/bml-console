@@ -20,6 +20,8 @@ class InitCommand extends Command
     protected $commands = [
         "/total" => \Jinas\BMLConsole\Commands\Total::class,
         "/contacts" => \Jinas\BMLConsole\Commands\Contacts::class,
+        "/add-contact" => \Jinas\BMLConsole\Commands\AddContact::class,
+        "/delete-contact" => \Jinas\BMLConsole\Commands\DeleteContact::class,
         "/todays-transactions" => \Jinas\BMLConsole\Commands\TodaysTransactions::class,
         "/pending-transactions" => \Jinas\BMLConsole\Commands\PendingTransactions::class,
         "/transactions-between" => \Jinas\BMLConsole\Commands\TransactionsBetween::class,
