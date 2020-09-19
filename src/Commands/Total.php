@@ -10,9 +10,9 @@ class Total
     public function handle(BML $bml, OutputInterface $output)
     {
         $output->writeln([
-            "<info>",
-            "Account Total: " . $bml->availableBalance . "MVR",
-            "</info>"
+            '<info>',
+            'Account Total: '.$bml->availableBalance.'MVR',
+            '</info>',
         ]);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Jinas\BMLConsole\Helpers;
 
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Symfony\Component\Console\Output\OutputInterface;
 
 trait Styles
 {
@@ -17,14 +17,14 @@ trait Styles
     public function meta()
     {
         return [
-            "title" => "BML Console",
-            "version" => "0.1",
-            "description" => "<epic>BML Console for nerds. Thats it :). Note that this is an experimental project.</epic> \n",
-            "accountdetail" => [
-                "<bruh>======================================================",
-                "Account Details",
-                "======================================================</bruh>"
-            ]
+            'title'         => 'BML Console',
+            'version'       => '0.1',
+            'description'   => "<epic>BML Console for nerds. Thats it :). Note that this is an experimental project.</epic> \n",
+            'accountdetail' => [
+                '<bruh>======================================================',
+                'Account Details',
+                '======================================================</bruh>',
+            ],
         ];
     }
 
@@ -47,9 +47,9 @@ trait Styles
     protected function CustomColors()
     {
         return [
-            "fire" => new OutputFormatterStyle('red', 'black', ['bold', 'blink']),
-            "epic" => new OutputFormatterStyle('magenta', 'black'),
-            "bruh" => new OutputFormatterStyle('cyan', 'black')
+            'fire' => new OutputFormatterStyle('red', 'black', ['bold', 'blink']),
+            'epic' => new OutputFormatterStyle('magenta', 'black'),
+            'bruh' => new OutputFormatterStyle('cyan', 'black'),
         ];
     }
 }
