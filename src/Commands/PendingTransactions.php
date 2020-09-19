@@ -3,8 +3,8 @@
 namespace Jinas\BMLConsole\Commands;
 
 use Jinas\BMLConsole\Helpers\BML;
-use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class PendingTransactions
 {
@@ -16,10 +16,10 @@ class PendingTransactions
 
         foreach ($bml->GetPendingTransactions() as $transaction) {
             $rows[] = [
-                $transaction["FromDate"],
-                $transaction["Description"],
-                $transaction["LockedID"],
-                $transaction["LockedAmount"]
+                $transaction['FromDate'],
+                $transaction['Description'],
+                $transaction['LockedID'],
+                $transaction['LockedAmount'],
             ];
         }
 

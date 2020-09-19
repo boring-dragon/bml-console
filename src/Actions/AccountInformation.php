@@ -22,7 +22,7 @@ class AccountInformation
             "Branch: \t $bml->branch",
             "Cleared Balance: <info> $bml->clearedBalance MVR</info>",
             "Account Total: \t <info> $bml->availableBalance  MVR</info>",
-            ""
+            '',
         ]);
     }
 }

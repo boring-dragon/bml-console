@@ -8,7 +8,7 @@ use GuzzleHttp\Cookie\SessionCookieJar;
 class Client
 {
     protected $client;
-    protected $BML_API = "https://www.bankofmaldives.com.mv/internetbanking/api/";
+    protected $BML_API = 'https://www.bankofmaldives.com.mv/internetbanking/api/';
 
     public function __construct()
     {
@@ -17,22 +17,22 @@ class Client
     }
 
     /**
-     * post
+     * post.
      *
      *  Send Post to BML API with array of form params
      *
      *   ['j_username' => $username,'j_password' => $password]
      *
-     * @param  mixed $params
-     * @param  mixed $route
+     * @param mixed $params
+     * @param mixed $route
      *
      * @return array
      */
     public function post(array $params, string $route): array
     {
         try {
-            $response = $this->client->request('POST', $this->BML_API . $route, [
-                'form_params' => $params
+            $response = $this->client->request('POST', $this->BML_API.$route, [
+                'form_params' => $params,
             ]);
 
             return json_decode($response->getBody(), true);
@@ -42,18 +42,19 @@ class Client
     }
 
     /**
-     * get
+     * get.
      *
      *  Send Get request to BML API
      *
-     * @param  mixed $route
+     * @param mixed $route
      *
      * @return array
      */
     public function get(string $route): array
     {
-        $response = $this->client->request('GET', $this->BML_API . $route);
+        $response = $this->client->request('GET', $this->BML_API.$route);
         $rawresponse = json_decode($response->getBody(), true);
-        return $rawresponse["payload"];
+
+        return $rawresponse['payload'];
     }
 }

@@ -2,19 +2,19 @@
 
 namespace Jinas\BMLConsole\Commands;
 
-use Jinas\BMLConsole\Helpers\BML;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 use Carbon\Carbon;
+use Jinas\BMLConsole\Helpers\BML;
 use Symfony\Component\Console\Helper\QuestionHelper;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
 class TransactionsBetween
 {
     public function handle(BML $bml, OutputInterface $output, InputInterface $input)
     {
-        $question = new QuestionHelper;
+        $question = new QuestionHelper();
 
         $from = $question->ask($input, $output, (new Question("<question>Transactions From? </question> \n"))
             ->setValidator(function ($value) {
@@ -39,13 +39,13 @@ class TransactionsBetween
 
         foreach ($bml->GetTransactionsBetween($from, $to) as $transaction) {
             $rows[] = [
-                $transaction["id"],
-                $transaction["narrative2"],
-                $transaction["description"],
-                $transaction["reference"],
-                $transaction["amount"] . " " . $bml->currency,
-                $transaction["balance"] . " " . $bml->currency,
-                Carbon::parse($transaction["bookingDate"])->format('d-m-Y H:i:s')
+                $transaction['id'],
+                $transaction['narrative2'],
+                $transaction['description'],
+                $transaction['reference'],
+                $transaction['amount'].' '.$bml->currency,
+                $transaction['balance'].' '.$bml->currency,
+                Carbon::parse($transaction['bookingDate'])->format('d-m-Y H:i:s'),
             ];
         }
 
