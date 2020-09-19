@@ -1,6 +1,6 @@
 # BML CONSOLE
 
-[![StyleCI](https://github.styleci.io/repos/295019117/shield?branch=master)](https://github.styleci.io/repos/295019117?branch=master)[![StyleCI](https://github.styleci.io/repos/295019117/shield?branch=master)](https://github.styleci.io/repos/295019117?branch=master)
+[![StyleCI](https://github.styleci.io/repos/295019117/shield?branch=master)](https://github.styleci.io/repos/295019117?branch=master)
 
 BML Console for nerds 🧙‍♂️🔥 Thats it pretty much it really. Note that this is an experimental project.
 
