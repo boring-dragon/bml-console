@@ -2,12 +2,12 @@
 
 namespace Jinas\BMLConsole\Commands;
 
+use Jinas\BMLConsole\Helpers\Arr;
 use Jinas\BMLConsole\Helpers\BML;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Jinas\BMLConsole\Helpers\Arr;
 
 class DeleteContact
 {
