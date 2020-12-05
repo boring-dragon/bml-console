@@ -18,6 +18,7 @@ class InitCommand extends Command
     protected $exit = false;
 
     protected $commands = [
+        '/transfer'             => \Jinas\BMLConsole\Commands\Transfer::class,
         '/total'                => \Jinas\BMLConsole\Commands\Total::class,
         '/contacts'             => \Jinas\BMLConsole\Commands\Contacts::class,
         '/add-contact'          => \Jinas\BMLConsole\Commands\AddContact::class,

@@ -113,4 +113,14 @@ class BML
     {
         return $this->client->get('activities')['content']['data'];
     }
+
+    public function transfer(array $options)
+    {
+        return $this->client->post($options, 'transfer');
+    }
+
+    public function isValidAccountNumber(int $number)
+    {
+        return $this->client->get("validate/account/$number");
+    }
 }
