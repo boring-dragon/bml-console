@@ -33,6 +33,7 @@ class DeleteContact
 
         if (!array_key_exists($contact_key, $contacts)) {
             $output->writeln("<error> Contact doesn't exist! </error>");
+
             return 0;
         }
 
