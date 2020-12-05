@@ -44,5 +44,6 @@ All available commands will have autocompletion.
 
 - [x] Ability to add contacts
 - [x] Ability to delete contacts
+- [x] Ability to make Tranfer to a given account number
 - [ ] Ability to make transfers to account saved in contacts.
 
