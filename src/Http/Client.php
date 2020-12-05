@@ -48,9 +48,8 @@ class Client
      *
      * @param mixed $route
      *
-     * @return array
      */
-    public function get(string $route): array
+    public function get(string $route)
     {
         $response = $this->client->request('GET', $this->BML_API.$route);
         $rawresponse = json_decode($response->getBody(), true);
