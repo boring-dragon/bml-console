@@ -3,11 +3,11 @@
 namespace Jinas\BMLConsole\Commands;
 
 use Jinas\BMLConsole\Helpers\BML;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Helper\QuestionHelper;
-use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\Question;
 
 class Transfer
 {
@@ -42,12 +42,12 @@ class Transfer
             }));
 
         $bml->transfer([
-            "transfertype" => "IAT",
-            "channel" => "mobile",
-            "debitAmount" => $amount,
-            "currency" => "MVR",
-            "creditAccount" => $account,
-            "debitAccount" => $bml->guid
+            'transfertype'  => 'IAT',
+            'channel'       => 'mobile',
+            'debitAmount'   => $amount,
+            'currency'      => 'MVR',
+            'creditAccount' => $account,
+            'debitAccount'  => $bml->guid,
         ]);
 
         $otp = $question->ask($input, $output, (new Question("<question>What is the Verification Code?</question> \n"))
@@ -64,34 +64,33 @@ class Transfer
             }));
 
         $invoice = $bml->transfer([
-            "transfertype" => "IAT",
-            "channel" => "mobile",
-            "debitAmount" => $amount,
-            "currency" => "MVR",
-            "creditAccount" => $account,
-            "debitAccount" => $bml->guid,
-            "otp" => $otp
+            'transfertype'  => 'IAT',
+            'channel'       => 'mobile',
+            'debitAmount'   => $amount,
+            'currency'      => 'MVR',
+            'creditAccount' => $account,
+            'debitAccount'  => $bml->guid,
+            'otp'           => $otp,
         ]);
 
-        if(!$invoice["success"])
-        {
-            throw new \Exception("whoops!. something went wrong. Transaction cannot be completed");
+        if (!$invoice['success']) {
+            throw new \Exception('whoops!. something went wrong. Transaction cannot be completed');
         }
 
         $table = new Table($output);
-        $table->setHeaderTitle("Invoice");
+        $table->setHeaderTitle('Invoice');
         $table->setHeaders(['Status', 'Message', 'Ref #', 'Date',  'From', 'To', 'Ammount', 'Remarks']);
 
-            $row[] = [
-               "SUCCESS",
-                "Transfer transaction is successful",
-                $invoice["payload"]["reference"],
-                $invoice["payload"]["timestamp"],
-                $invoice["payload"]["from"]["name"],
-                $invoice["payload"]["to"]["account"],
-                $invoice["payload"]["debitamount"],
-                ""
-            ];
+        $row[] = [
+            'SUCCESS',
+            'Transfer transaction is successful',
+            $invoice['payload']['reference'],
+            $invoice['payload']['timestamp'],
+            $invoice['payload']['from']['name'],
+            $invoice['payload']['to']['account'],
+            $invoice['payload']['debitamount'],
+            '',
+        ];
 
         $table->setRows($row);
         $table->render();

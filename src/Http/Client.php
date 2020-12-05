@@ -47,7 +47,6 @@ class Client
      *  Send Get request to BML API
      *
      * @param mixed $route
-     *
      */
     public function get(string $route)
     {
