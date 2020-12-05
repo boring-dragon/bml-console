@@ -30,6 +30,12 @@ class DeleteContact
             }));
 
         $contact_key = array_search($alias, array_column($contacts, 'alias'));
+
+        if (!array_key_exists($contact_key, $contacts)) {
+            $output->writeln("<error> Contact doesn't exist! </error>");
+            return 0;
+        }
+
         $bml->DeleteContact($contacts[$contact_key]['id']);
 
         $output->writeln('<info>Contact deleted successfully! </info>');
