@@ -28,6 +28,7 @@ Make sure to place Composer's system-wide vendor bin directory in your $PATH so 
 
 All available commands will have autocompletion.
 
+- /transfer : Make a transfer to an account.
 - /total : Get Total available account balance.
 - /contacts : Get a table of contacts added to the bml account.
 - /add-contact : Create a Contact.
